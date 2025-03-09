@@ -1,35 +1,33 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from 'react';
+import HeroSection from './components/HeroSection';
+import PracticeSection from './components/PracticeSection';
+import AltPracticeSection from './components/AltPracticeSection';
 
-function App() {
-  const [count, setCount] = useState(0)
-
+const App = () => {
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className="min-h-screen">
+      {/* Main content */}
+      <main>
+        <section className="shadow-xl">
+          <HeroSection />
+        </section>
+        
+        <section>
+          <PracticeSection />
+        </section>
+
+        <section>
+          <AltPracticeSection />
+        </section>
+        <section>
+          <PracticeSection 
+          title='Managing students academic life'
+          description="There is more to study than just practicing giving test. To meet the requirement of exam, we need to carefully do the revision, repeatedly align our study plan and to understand students own learning curve. This all needs to be done along with schools test and other scholarship exams. We manage it all for you. So that you focus on learning and worry no more."
+          />
+        </section>
+      </main>
+    </div>
+  );
 }
 
-export default App
+export default App;
