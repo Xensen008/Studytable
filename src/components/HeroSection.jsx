@@ -2,92 +2,120 @@ import React from 'react';
 
 const HeroSection = () => {
   return (
-    <div className="w-full bg-[#2A2A2A] p-30">
-      <div className="container mx-auto px-4">
-        <div className="flex flex-col lg:flex-row items-center justify-between">
+    <div className="w-full bg-[#1a1a2e] min-h-screen flex items-center justify-center py-20 relative overflow-hidden">
+      {/* Background Effects */}
+      <div className="absolute inset-0">
+        <div className="absolute top-0 -left-4 w-96 h-96 bg-indigo-500/10 rounded-full filter blur-3xl"></div>
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-500/10 rounded-full filter blur-3xl"></div>
+      </div>
+
+      <div className="container mx-auto px-8 lg:px-16 max-w-7xl relative z-10">
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-16">
           {/* Left Content Section */}
-          <div className="lg:w-1/2 text-left p-4">
-            <p className="text-white text-xl uppercase tracking-wider mb-2 font-bold relative">
-              <span className="bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">STUDY</span>
-              <span className="text-white">table</span>
-              <span className="absolute -bottom-1 left-0 w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-500"></span>
+          <div className="lg:w-1/2 text-left lg:pl-8">
+            <p className="inline-flex items-center space-x-1 mb-6">
+              <span className="bg-gradient-to-r from-indigo-400 to-purple-500 bg-clip-text text-transparent text-2xl font-bold">STUDY</span>
+              <span className="text-indigo-50 text-2xl font-bold">table</span>
             </p>
             
-            <h1 className="mb-6">
-              <span className="text-5xl md:text-6xl font-bold text-white block mb-2 animate-fade-in-down">Optimize</span>
-              <span className="text-3xl md:text-4xl text-gray-400 font-normal block mb-2 animate-fade-in-left">Your Performance For</span>
-              <span className="text-4xl md:text-5xl font-bold text-white block animate-fade-in-right">
-                <span className="text-blue-400">JEE</span>, 
-                <span className="text-green-400">NEET</span>, and 
-                <span className="text-yellow-400">Boards</span>
+            <h1 className="space-y-4 mb-8">
+              <span className="text-5xl md:text-6xl font-bold text-white block mb-2 drop-shadow-lg">
+                Optimize
               </span>
+              <span className="text-3xl md:text-4xl text-indigo-200/70 font-normal block">
+                Your Performance For
+              </span>
+              <div className="flex items-center gap-4 text-4xl md:text-5xl font-bold">
+                <span className="text-indigo-400">JEE</span>
+                <span className="text-purple-400">NEET</span>
+                <span className="text-pink-400">Boards</span>
+              </div>
             </h1>
             
-            <p className="text-lg mb-8 text-gray-300 max-w-2xl leading-relaxed">
+            <p className="text-lg mb-10 text-indigo-200/70 max-w-2xl leading-relaxed">
               Your personal AI-Tutor for all academic needs. Whether its school exam, boards or competitive exams we plan, manage, and help you clear your doubts instantly. For students of class 10th, 11th and 12th (CBSE) and preparing for all medical or engineering entrance exams.
             </p>
             
-            <div className="flex flex-wrap gap-4">
-              <button className="bg-gradient-to-r from-blue-500 to-purple-500 text-white py-3 px-8 rounded-md hover:opacity-90 transition-all font-medium transform hover:scale-105">
-                Apply for admission
+            <div className="flex flex-wrap gap-6">
+              <button className="group relative px-8 py-3 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-lg">
+                <span className="relative z-10 text-white font-medium">Apply for admission</span>
+                <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity"></div>
               </button>
-              <button className="text-white py-3 px-6 border border-white/40 rounded-md hover:bg-white/10 transition-all hover:border-white group">
-                <span className="flex items-center">
+              <button className="px-8 py-3 border border-indigo-400/30 text-indigo-100 rounded-lg hover:bg-indigo-500/10 transition-all group">
+                <span className="flex items-center gap-2">
                   Sign In 
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                  <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7"/>
                   </svg>
                 </span>
               </button>
             </div>
           </div>
 
-          {/* Right Image Section */}
-          <div className="lg:w-1/2 mt-12 lg:mt-0 p-4 relative flex justify-center">
-            <div className="relative">
-              <img 
-                src="./Image/img.png" 
-                alt="Person using STUDYtable" 
-                className="w-[350px] h-auto object-contain mx-auto transform scale-x-[-1] filter brightness-110 contrast-110 drop-shadow-[0_0_15px_rgba(100,200,255,0.3)]"
-              />
-              
-              {/* Floating exam categories box */}
-              <div className="absolute -right-10 top-1/4 bg-[#333333]/85 p-5 rounded-lg shadow-xl border border-gray-700 backdrop-blur-sm">
-                <h3 className="text-white font-medium mb-3 border-b border-white/20 pb-2">Exam Categories</h3>
-                <ul className="space-y-2 text-white">
-                  <li className="flex items-center">
-                    <span className="w-2 h-2 bg-blue-400 rounded-full mr-2"></span>
-                    NEET
-                  </li>
-                  <li className="flex items-center">
-                    <span className="w-2 h-2 bg-green-400 rounded-full mr-2"></span>
-                    JEE
-                  </li>
-                  <li className="flex items-center">
-                    <span className="w-2 h-2 bg-yellow-400 rounded-full mr-2"></span>
-                    Tuition
-                  </li>
-                  <li className="flex items-center">
-                    <span className="w-2 h-2 bg-purple-400 rounded-full mr-2"></span>
-                    Boards
-                  </li>
-                  <li className="flex items-center">
-                    <span className="w-2 h-2 bg-pink-400 rounded-full mr-2"></span>
-                    Scholarship
-                  </li>
-                  <li className="flex items-center">
-                    <span className="w-2 h-2 bg-indigo-400 rounded-full mr-2"></span>
-                    School Test
-                  </li>
-                </ul>
+          {/* Right Image Section - Redesigned */}
+          <div className="lg:w-1/2 relative hidden lg:flex justify-center">
+            <div className="relative w-full max-w-xl pt-10">
+              {/* Main Image with Container */}
+              <div className="relative z-10 bg-gradient-to-b from-indigo-500/5 to-purple-500/5 rounded-[2rem] p-6">
+                <div className="absolute inset-0 bg-gradient-to-tr from-indigo-500/20 via-purple-500/10 to-transparent rounded-[2rem] blur-2xl"></div>
+                <img 
+                  src="./Image/img.png" 
+                  alt="Person using STUDYtable" 
+                  className="w-[420px] h-auto object-contain mx-auto scale-x-[-1] 
+                    drop-shadow-[0_0_15px_rgba(255,255,255,0.2)] 
+                    filter brightness-110 contrast-105"
+                />
               </div>
-              
-              {/* Abstract study elements */}
-              <div className="absolute -top-5 -left-5 w-12 h-12 rounded-full bg-blue-500/30 backdrop-blur-sm flex items-center justify-center">
-                <span className="text-white text-2xl font-bold">π</span>
+
+              {/* Floating Elements Container */}
+              <div className="absolute inset-0 z-20">
+                {/* Mathematical Formulas */}
+                <div className="absolute -top-6 left-20 animate-float-slow">
+                  <div className="bg-white/5 backdrop-blur-md px-4 py-2 rounded-lg border border-indigo-500/20">
+                    <span className="text-indigo-100 font-mono">∫e^x dx</span>
+                  </div>
+                </div>
+
+                <div className="absolute top-1/4 -right-8 animate-float">
+                  <div className="bg-white/5 backdrop-blur-md px-3 py-1.5 rounded-lg border border-purple-500/20">
+                    <span className="text-purple-100 font-mono text-sm">lim x→∞</span>
+                  </div>
+                </div>
+
+                <div className="absolute bottom-1/3 -left-10 animate-float-slow">
+                  <div className="bg-white/5 backdrop-blur-md px-4 py-2 rounded-lg border border-pink-500/20">
+                    <span className="text-pink-100 font-mono">Σ(n²)</span>
+                  </div>
+                </div>
               </div>
-              <div className="absolute bottom-10 -left-10 w-20 h-10 bg-green-500/20 backdrop-blur-sm rounded flex items-center justify-center">
-                <span className="text-white text-sm">E=mc²</span>
+
+              {/* Exam Categories - Redesigned */}
+              <div className="absolute -right-6 top-1/2 transform -translate-y-1/2">
+                <div className="bg-gradient-to-br from-[#20203a]/80 to-[#2a1f3f]/80 p-5 rounded-2xl backdrop-blur-xl border border-indigo-500/20">
+                  <h3 className="text-white/90 text-sm font-medium mb-4 flex items-center gap-2">
+                    <svg className="w-4 h-4 text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7"/>
+                    </svg>
+                    Popular Exams
+                  </h3>
+                  <div className="space-y-2.5">
+                    {[
+                      { name: 'JEE Mains', count: '250K+', color: 'from-indigo-400/20 to-blue-500/20' },
+                      { name: 'NEET UG', count: '180K+', color: 'from-purple-400/20 to-pink-500/20' },
+                      { name: 'CBSE Boards', count: '500K+', color: 'from-pink-400/20 to-rose-500/20' }
+                    ].map((exam, i) => (
+                      <div key={i} 
+                        className={`bg-gradient-to-r ${exam.color} rounded-xl p-3 hover:scale-105 transition-transform cursor-pointer group`}>
+                        <div className="flex justify-between items-center">
+                          <span className="text-white/90 font-medium">{exam.name}</span>
+                          <span className="text-xs text-white/60 group-hover:text-white/90 transition-colors">
+                            {exam.count} students
+                          </span>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
           </div>
