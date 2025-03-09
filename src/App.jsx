@@ -32,11 +32,11 @@ const App = () => {
         <section>
           <HowWeComponent/>
         </section>
-        <section className='mt-20'>
+        <section >
           <AcademicHero/>
         </section>
       </main>
-      <footer className='mt-30'>
+      <footer>
         <Footer/>
       </footer>
     </div>
