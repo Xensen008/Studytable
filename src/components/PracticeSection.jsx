@@ -1,10 +1,22 @@
 import React from 'react'
 import ChatCard from './ChatCard';
+import { motion } from 'framer-motion';
+import AnimationWrapper from './AnimationWrapper';
 
 const PracticeSection = ({
     title = "Unlimited Practice session",
     description = "For topics and subjects you go through in your school and coaching every day, we create instant practice session specially made for your days need. Our innovative AI algorithm crafts batches of 20 questions, each accompanied by instant feedback and solutions - it's like having a Home tutor 24X7."
 }) => {
+    const containerVariants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.2
+            }
+        }
+    };
+
     return (
         <div className="bg-[#1a1a2e] py-20 px-8 relative overflow-hidden">
             {/* Background Effects */}
@@ -14,9 +26,15 @@ const PracticeSection = ({
             </div>
 
             <div className="max-w-7xl mx-auto relative z-10">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <motion.div
+                    variants={containerVariants}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true }}
+                    className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center"
+                >
                     {/* Content Section */}
-                    <div className="space-y-8">
+                    <AnimationWrapper className="space-y-8">
                         <div className="relative">
                             <h2 className="text-4xl lg:text-5xl font-bold text-white">
                                 {title}
@@ -46,22 +64,24 @@ const PracticeSection = ({
                                 </div>
                             ))}
                         </div>
-                    </div>
+                    </AnimationWrapper>
 
                     {/* ChatCard Section */}
-                    <div className="relative">
-                        {/* Floating Elements */}
-                        <div className="absolute -top-6 right-20 animate-float-slow">
-                            <div className="bg-white/5 backdrop-blur-md px-4 py-2 rounded-lg border border-indigo-500/20">
-                                <span className="text-indigo-100 font-mono">Q = mc∆T</span>
+                    <AnimationWrapper>
+                        <div className="relative">
+                            {/* Floating Elements */}
+                            <div className="absolute -top-6 right-20 animate-float-slow">
+                                <div className="bg-white/5 backdrop-blur-md px-4 py-2 rounded-lg border border-indigo-500/20">
+                                    <span className="text-indigo-100 font-mono">Q = mc∆T</span>
+                                </div>
+                            </div>
+                            
+                            <div className="relative bg-gradient-to-b from-[#20203a]/80 to-[#2a1f3f]/80 p-6 rounded-2xl backdrop-blur-xl border border-indigo-500/20">
+                                <ChatCard />
                             </div>
                         </div>
-                        
-                        <div className="relative bg-gradient-to-b from-[#20203a]/80 to-[#2a1f3f]/80 p-6 rounded-2xl backdrop-blur-xl border border-indigo-500/20">
-                            <ChatCard />
-                        </div>
-                    </div>
-                </div>
+                    </AnimationWrapper>
+                </motion.div>
             </div>
         </div>
     );

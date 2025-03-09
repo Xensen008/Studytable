@@ -1,8 +1,46 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
 const HeroSection = () => {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.3
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: { duration: 0.7, ease: "easeOut" }
+    }
+  };
+
+  const floatingFormulaVariants = {
+    hidden: { opacity: 0, scale: 0.8 },
+    visible: { 
+      opacity: 1, 
+      scale: 1,
+      transition: { 
+        duration: 0.5,
+        ease: "easeOut"
+      }
+    }
+  };
+
   return (
-    <div className="w-full bg-[#1a1a2e] min-h-screen flex items-center justify-center py-20 relative overflow-hidden">
+    <motion.div 
+      className="w-full bg-[#1a1a2e] min-h-screen flex items-center justify-center py-20 relative overflow-hidden"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+    >
       {/* Background Effects */}
       <div className="absolute inset-0">
         <div className="absolute top-0 -left-4 w-96 h-96 bg-indigo-500/10 rounded-full filter blur-3xl"></div>
@@ -10,15 +48,23 @@ const HeroSection = () => {
       </div>
 
       <div className="container mx-auto px-8 lg:px-16 max-w-7xl relative z-10">
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-16">
+        <motion.div 
+          className="flex flex-col lg:flex-row items-center justify-between gap-16"
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+        >
           {/* Left Content Section */}
           <div className="lg:w-1/2 text-left lg:pl-8">
-            <p className="inline-flex items-center space-x-1 mb-6">
+            <motion.p 
+              variants={itemVariants} 
+              className="inline-flex items-center space-x-1 mb-6"
+            >
               <span className="bg-gradient-to-r from-indigo-400 to-purple-500 bg-clip-text text-transparent text-2xl font-bold">STUDY</span>
               <span className="text-indigo-50 text-2xl font-bold">table</span>
-            </p>
+            </motion.p>
             
-            <h1 className="space-y-4 mb-8">
+            <motion.div variants={itemVariants} className="space-y-4 mb-8">
               <span className="text-5xl md:text-6xl font-bold text-white block mb-2 drop-shadow-lg">
                 Optimize
               </span>
@@ -30,13 +76,13 @@ const HeroSection = () => {
                 <span className="text-purple-400">NEET</span>
                 <span className="text-pink-400">Boards</span>
               </div>
-            </h1>
+            </motion.div>
             
-            <p className="text-lg mb-10 text-indigo-200/70 max-w-2xl leading-relaxed">
+            <motion.p variants={itemVariants} className="text-lg mb-10 text-indigo-200/70 max-w-2xl leading-relaxed">
               Your personal AI-Tutor for all academic needs. Whether its school exam, boards or competitive exams we plan, manage, and help you clear your doubts instantly. For students of class 10th, 11th and 12th (CBSE) and preparing for all medical or engineering entrance exams.
-            </p>
+            </motion.p>
             
-            <div className="flex flex-wrap gap-6">
+            <motion.div variants={itemVariants} className="flex flex-wrap gap-6">
               <button className="group relative px-8 py-3 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-lg">
                 <span className="relative z-10 text-white font-medium">Apply for admission</span>
                 <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity"></div>
@@ -49,14 +95,22 @@ const HeroSection = () => {
                   </svg>
                 </span>
               </button>
-            </div>
+            </motion.div>
           </div>
 
-          {/* Right Image Section - Redesigned */}
-          <div className="lg:w-1/2 relative hidden lg:flex justify-center">
+          {/* Right Image Section */}
+          <motion.div 
+            className="lg:w-1/2 relative hidden lg:flex justify-center"
+            variants={itemVariants}
+          >
             <div className="relative w-full max-w-xl pt-10">
-              {/* Main Image with Container */}
-              <div className="relative z-10 bg-gradient-to-b from-indigo-500/5 to-purple-500/5 rounded-[2rem] p-6">
+              {/* Main Image */}
+              <motion.div 
+                className="relative z-10 bg-gradient-to-b from-indigo-500/5 to-purple-500/5 rounded-[2rem] p-6"
+                initial={{ scale: 0.8, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ duration: 0.7, delay: 0.2 }}
+              >
                 <div className="absolute inset-0 bg-gradient-to-tr from-indigo-500/20 via-purple-500/10 to-transparent rounded-[2rem] blur-2xl"></div>
                 <img 
                   src="./Image/img.png" 
@@ -65,32 +119,35 @@ const HeroSection = () => {
                     drop-shadow-[0_0_15px_rgba(255,255,255,0.2)] 
                     filter brightness-110 contrast-105"
                 />
-              </div>
+              </motion.div>
 
-              {/* Floating Elements Container */}
+              {/* Floating Elements */}
               <div className="absolute inset-0 z-20">
-                {/* Mathematical Formulas */}
-                <div className="absolute -top-6 left-20 animate-float-slow">
-                  <div className="bg-white/5 backdrop-blur-md px-4 py-2 rounded-lg border border-indigo-500/20">
-                    <span className="text-indigo-100 font-mono">∫e^x dx</span>
-                  </div>
-                </div>
-
-                <div className="absolute top-1/4 -right-8 animate-float">
-                  <div className="bg-white/5 backdrop-blur-md px-3 py-1.5 rounded-lg border border-purple-500/20">
-                    <span className="text-purple-100 font-mono text-sm">lim x→∞</span>
-                  </div>
-                </div>
-
-                <div className="absolute bottom-1/3 -left-10 animate-float-slow">
-                  <div className="bg-white/5 backdrop-blur-md px-4 py-2 rounded-lg border border-pink-500/20">
-                    <span className="text-pink-100 font-mono">Σ(n²)</span>
-                  </div>
-                </div>
+                {[
+                  { top: '-6', left: '20', formula: '∫e^x dx', delay: 0.6 },
+                  { top: '1/4', right: '-8', formula: 'lim x→∞', delay: 0.8 },
+                  { bottom: '1/3', left: '-10', formula: 'Σ(n²)', delay: 1 }
+                ].map((item, index) => (
+                  <motion.div
+                    key={index}
+                    className={`absolute ${item.top && `top-${item.top}`} ${item.bottom && `bottom-${item.bottom}`} ${item.left && `left-${item.left}`} ${item.right && `right-${item.right}`}`}
+                    variants={floatingFormulaVariants}
+                    initial="hidden"
+                    animate="visible"
+                    transition={{ delay: item.delay }}
+                  >
+                    <div className="bg-white/5 backdrop-blur-md px-4 py-2 rounded-lg border border-indigo-500/20">
+                      <span className="text-indigo-100 font-mono">{item.formula}</span>
+                    </div>
+                  </motion.div>
+                ))}
               </div>
 
-              {/* Exam Categories - Redesigned */}
-              <div className="absolute -right-6 top-1/2 transform -translate-y-1/2">
+              {/* Exam Categories */}
+              <motion.div 
+                className="absolute -right-6 top-1/2 transform -translate-y-1/2"
+                variants={itemVariants}
+              >
                 <div className="bg-gradient-to-br from-[#20203a]/80 to-[#2a1f3f]/80 p-5 rounded-2xl backdrop-blur-xl border border-indigo-500/20">
                   <h3 className="text-white/90 text-sm font-medium mb-4 flex items-center gap-2">
                     <svg className="w-4 h-4 text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -116,12 +173,12 @@ const HeroSection = () => {
                     ))}
                   </div>
                 </div>
-              </div>
+              </motion.div>
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
