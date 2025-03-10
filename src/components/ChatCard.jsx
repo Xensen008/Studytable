@@ -19,7 +19,7 @@ const ChatCard = ({ messages = [
           <span className="text-indigo-100 font-medium text-sm sm:text-base">AI Tutor Online</span>
         </div>
         <img 
-          src="https://dashboard.codeparrot.ai/api/image/Z82uFcaO8SxPzRj7/image-5.png"
+          src="./Image/cirlcle.png"
           alt="AI Tutor"
           className="w-10 h-10 sm:w-12 sm:h-12 rounded-full ring-2 ring-purple-500/30"
         />

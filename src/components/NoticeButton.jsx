@@ -8,7 +8,7 @@ const NoticeButton = ({ onClick }) => {
     >
       <div className="w-8 h-8 rounded-lg bg-gradient-to-r from-indigo-500 to-purple-500 flex items-center justify-center">
         <img 
-          src="https://dashboard.codeparrot.ai/api/image/Z83LtNG_8Dy7NbEr/typcn-pi.png"
+          src="./Image/pin.png"
           alt="Pin icon"
           className="w-5 h-5 brightness-200 contrast-200"
         />
