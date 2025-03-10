@@ -1,11 +1,13 @@
 import React from 'react'
 import ChatCard from './ChatCard';
+import AcademicLifeCard from './AcademicLifeCard';
 import { motion } from 'framer-motion';
 import AnimationWrapper from './AnimationWrapper';
 
 const PracticeSection = ({
     title = "Unlimited Practice session",
-    description = "For topics and subjects you go through in your school and coaching every day, we create instant practice session specially made for your days need. Our innovative AI algorithm crafts batches of 20 questions, each accompanied by instant feedback and solutions - it's like having a Home tutor 24X7."
+    description = "For topics and subjects you go through in your school and coaching every day, we create instant practice session specially made for your days need. Our innovative AI algorithm crafts batches of 20 questions, each accompanied by instant feedback and solutions - it's like having a Home tutor 24X7.",
+    from="first"
 }) => {
     const containerVariants = {
         hidden: { opacity: 0 },
@@ -14,6 +16,17 @@ const PracticeSection = ({
             transition: {
                 staggerChildren: 0.2
             }
+        }
+    };
+
+    const renderCard = () => {
+        switch(from) {
+            case 'first':
+                return <ChatCard />;
+            case 'third':
+                return <AcademicLifeCard />;
+            default:
+                return <ChatCard />;
         }
     };
 
@@ -66,7 +79,7 @@ const PracticeSection = ({
                         </div>
                     </AnimationWrapper>
 
-                    {/* ChatCard Section */}
+                    {/* Dynamic Card Section */}
                     <AnimationWrapper>
                         <div className="relative">
                             {/* Floating Elements */}
@@ -77,7 +90,7 @@ const PracticeSection = ({
                             </div>
                             
                             <div className="relative bg-gradient-to-b from-[#20203a]/80 to-[#2a1f3f]/80 p-6 rounded-2xl backdrop-blur-xl border border-indigo-500/20">
-                                <ChatCard />
+                                {renderCard()}
                             </div>
                         </div>
                     </AnimationWrapper>

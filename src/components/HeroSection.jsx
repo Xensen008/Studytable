@@ -40,20 +40,20 @@ const HeroSection = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
     >
-      {/* Brand Name - Centered Design */}
-      <div className="absolute top-0 left-0 right-0 z-20 pt-8 pb-4">
-        <div className="container mx-auto px-8 lg:px-16 flex justify-center">
+      {/* Brand Name - Adjusted for mobile */}
+      <div className="absolute top-0 left-0 right-0 z-20 pt-6 sm:pt-8 pb-4">
+        <div className="container mx-auto px-6 lg:px-16 flex justify-center">
           <motion.div 
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
             className="relative inline-block"
           >
-            <h1 className="text-5xl font-bold tracking-tight flex items-center gap-2">
+            <h1 className="text-3xl sm:text-5xl font-bold tracking-tight flex items-center gap-2">
               <span className="text-white">STUDY</span>
               <span className="text-indigo-400">table</span>
               <motion.span 
-                className="w-2 h-2 rounded-full bg-gradient-to-r from-indigo-500 to-purple-500"
+                className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-gradient-to-r from-indigo-500 to-purple-500"
                 animate={{ scale: [1, 1.2, 1] }}
                 transition={{ duration: 2, repeat: Infinity }}
               />
@@ -100,13 +100,14 @@ const HeroSection = () => {
                 Your personal AI-Tutor for all academic needs. Whether its school exam, boards or competitive exams we plan, manage, and help you clear your doubts instantly. For students of class 10th, 11th and 12th (CBSE) and preparing for all medical or engineering entrance exams.
               </motion.p>
               
-              <motion.div variants={itemVariants} className="flex flex-wrap gap-6">
-                <button className="group relative px-8 py-3 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-lg">
+              {/* Buttons - Adjusted for mobile */}
+              <motion.div variants={itemVariants} className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 sm:gap-6">
+                <button className="group relative px-8 py-3 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-lg w-full sm:w-auto">
                   <span className="relative z-10 text-white font-medium">Apply for admission</span>
                   <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity"></div>
                 </button>
-                <button className="px-8 py-3 border border-indigo-400/30 text-indigo-100 rounded-lg hover:bg-indigo-500/10 transition-all group">
-                  <span className="flex items-center gap-2">
+                <button className="px-8 py-3 border border-indigo-400/30 text-indigo-100 rounded-lg hover:bg-indigo-500/10 transition-all group w-full sm:w-auto">
+                  <span className="flex items-center justify-center sm:justify-start gap-2">
                     Sign In 
                     <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7"/>
